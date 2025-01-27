@@ -17,7 +17,7 @@ const FEATURES: Feature[] = [
     { name: 'Next.js 15' },
     { name: 'React 19' },
     { name: 'Typescript 5' },
-    { name: 'TailwindCSS 3' },
+    { name: 'TailwindCSS 4' },
     {
         // ! ===================== DISCLAIMER =====================
         // ! There is no official solution available for new ESLint 9 flat config structure for NextJS

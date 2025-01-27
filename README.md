@@ -4,7 +4,7 @@
 - [**Next.js 15 Starter Core**](https://github.com/SiddharthaMaity/nextjs-15-starter-core)
 - [**Next.js 15 Starter with Shadcn UI**](https://github.com/SiddharthaMaity/nextjs-15-starter-shadcn)
 
-Welcome to the **Next.js 15 Starter** repository! This starter template is built with Next.js 15, React 19, TypeScript 5, Tailwind CSS 3 and comes packed with several powerful tools and configurations to accelerate your project setup and streamline development workflows using VS Code.
+Welcome to the **Next.js 15 Starter** repository! This starter template is built with Next.js 15, React 19, TypeScript 5, Tailwind CSS 4 and comes packed with several powerful tools and configurations to accelerate your project setup and streamline development workflows using VS Code.
 
 ![Next.js 15 Starter](public/images/screenshot.png)
 
@@ -15,7 +15,7 @@ Welcome to the **Next.js 15 Starter** repository! This starter template is built
 - **TypeScript 5**
 - **ESLint 9**
 - **Prettier 3**
-- **Tailwind CSS 3**
+- **Tailwind CSS 4**
 - **App Directory**
 - **System, Light & Dark Mode**
 - **Next.js Bundle Analyzer**
