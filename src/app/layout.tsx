@@ -5,6 +5,9 @@ import localFont from 'next/font/local';
 
 import { ThemeProvider } from 'next-themes';
 
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { AppSidebar } from '@/components/app-sidebar';
+
 import '@/app/globals.css';
 
 const geistSans = localFont({
@@ -29,7 +32,12 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
         // ? https://react.dev/reference/react-dom/client/hydrateRoot#suppressing-unavoidable-hydration-mismatch-errors
         <html suppressHydrationWarning lang='en'>
             <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}>
-                <ThemeProvider attribute='class'>{children}</ThemeProvider>
+                <ThemeProvider attribute='class'>
+                    <SidebarProvider>
+                        <AppSidebar />
+                        <SidebarInset>{children}</SidebarInset>
+                    </SidebarProvider>
+                </ThemeProvider>
             </body>
         </html>
     );
