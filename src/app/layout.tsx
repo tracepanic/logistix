@@ -5,7 +5,8 @@ import localFont from 'next/font/local';
 
 import { ThemeProvider } from 'next-themes';
 
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
+import { Separator } from '@/components/ui/separator';
 import { AppSidebar } from '@/components/app-sidebar';
 
 import '@/app/globals.css';
@@ -35,7 +36,15 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                 <ThemeProvider attribute='class'>
                     <SidebarProvider>
                         <AppSidebar />
-                        <SidebarInset>{children}</SidebarInset>
+                        <SidebarInset>
+                            <header className="flex h-16 shrink-0 items-center gap-2">
+                                <div className="flex items-center gap-2 px-4">
+                                    <SidebarTrigger className="-ml-1" />
+                                    <Separator orientation="vertical" className="mr-2 h-4" />
+                                </div>
+                            </header>
+                            <div className="w-full h-full p-4 pt-0 mb-36">{children}</div>
+                        </SidebarInset>
                     </SidebarProvider>
                 </ThemeProvider>
             </body>
