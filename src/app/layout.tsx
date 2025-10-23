@@ -8,6 +8,7 @@ import { ThemeProvider } from 'next-themes';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { Separator } from '@/components/ui/separator';
 import { AppSidebar } from '@/components/app-sidebar';
+import { CompanyProvider } from '@/providers/company-provider';
 
 import '@/app/globals.css';
 
@@ -35,18 +36,20 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
             <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}>
                 <ThemeProvider attribute='class'>
                     <SidebarProvider>
-                        <AppSidebar />
-                        <SidebarInset>
-                            <header className="flex h-16 shrink-0 items-center gap-2 justify-between px-4 relative">
-                                <div className="flex items-center gap-2">
-                                    <SidebarTrigger className="-ml-1" />
-                                    <Separator orientation="vertical" className="mr-2 h-4" />
-                                </div>
-                                <span className="font-semibold text-lg absolute left-1/2 -translate-x-1/2">LogistiX</span>
-                            </header>
-                            <Separator orientation="horizontal" />
-                            <div className="w-full h-full p-4 pt-0 mb-36">{children}</div>
-                        </SidebarInset>
+                        <CompanyProvider>
+                            <AppSidebar />
+                            <SidebarInset>
+                                <header className="flex h-16 shrink-0 items-center gap-2 justify-between px-4 relative">
+                                    <div className="flex items-center gap-2">
+                                        <SidebarTrigger className="-ml-1" />
+                                        <Separator orientation="vertical" className="mr-2 h-4" />
+                                    </div>
+                                    <span className="font-semibold text-lg absolute left-1/2 -translate-x-1/2">LogistiX</span>
+                                </header>
+                                <Separator orientation="horizontal" />
+                                <div className="w-full h-full p-4 pt-0 mb-36">{children}</div>
+                            </SidebarInset>
+                        </CompanyProvider>
                     </SidebarProvider>
                 </ThemeProvider>
             </body>
