@@ -14,12 +14,24 @@ export const columns: ColumnDef<Garage>[] = [
   },
   {
     accessorKey: "currentTrucks",
-    header: "Capacity",
+    header: "Trucks",
     cell: ({ row }) => {
       const garage = row.original
       return (
         <div>
           {garage.currentTrucks}/{garage.capacity}
+        </div>
+      )
+    },
+  },
+  {
+    accessorKey: "currentTrailers",
+    header: "Trailers",
+    cell: ({ row }) => {
+      const garage = row.original
+      return (
+        <div>
+          {garage.currentTrailers}/{garage.trailerCapacity}
         </div>
       )
     },
