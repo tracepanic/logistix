@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Truck, Building2 } from "lucide-react"
+import { Truck, Building2, Building } from "lucide-react"
 
 import {
   Sidebar,
@@ -25,6 +25,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {
           title: "Manage Company",
           url: "/company/manage",
+        },
+        {
+          title: "Garage",
+          url: "/garage",
+          icon: Building,
+          isActive: true,
         },
       ],
     },
