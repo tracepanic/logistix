@@ -37,13 +37,14 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                     <SidebarProvider>
                         <AppSidebar />
                         <SidebarInset>
-                            <header className="flex h-16 shrink-0 items-center gap-2">
-                                <div className="flex items-center gap-2 px-4">
+                            <header className="flex h-16 shrink-0 items-center gap-2 justify-between px-4 relative">
+                                <div className="flex items-center gap-2">
                                     <SidebarTrigger className="-ml-1" />
                                     <Separator orientation="vertical" className="mr-2 h-4" />
-                                    <span className="font-semibold text-lg">LogistiX</span>
                                 </div>
+                                <span className="font-semibold text-lg absolute left-1/2 -translate-x-1/2">LogistiX</span>
                             </header>
+                            <Separator orientation="horizontal" />
                             <div className="w-full h-full p-4 pt-0 mb-36">{children}</div>
                         </SidebarInset>
                     </SidebarProvider>
