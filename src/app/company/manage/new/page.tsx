@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/ui/spinner'
 
 // Form validation schema
 const formSchema = z.object({
@@ -65,7 +66,7 @@ export default function NewCompanyPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <p className="text-muted-foreground">Checking...</p>
+        <Spinner className="size-6" />
       </div>
     )
   }
@@ -100,7 +101,11 @@ export default function NewCompanyPage() {
               className="w-full"
               disabled={form.formState.isSubmitting}
             >
-              {form.formState.isSubmitting ? "Creating..." : "Create Company"}
+              {form.formState.isSubmitting ? (
+                <Spinner className="size-4" />
+              ) : (
+                "Create Company"
+              )}
             </Button>
           </form>
         </Form>
