@@ -11,7 +11,13 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { useGarageStore } from "@/store/garage-store"
 import { useCompanyStore } from "@/store/company-store"
 import { cn } from "@/lib/utils"
@@ -53,6 +59,11 @@ export function SelectGarageDialog({
 
   // Check if all garages are full
   const allGaragesFull = garages.length > 0 && garages.every(isGarageFull)
+
+  // Filter available garages (exclude full ones)
+  const availableGarages = garages
+    .filter((garage) => !isGarageFull(garage))
+    .sort((a, b) => a.country.localeCompare(b.country))
 
   // Check if company has sufficient funds
   const hasSufficientFunds = company ? company.balance >= vehiclePrice : false
@@ -102,42 +113,32 @@ export function SelectGarageDialog({
               You don&apos;t have any garages yet. Purchase a garage first.
             </div>
           ) : (
-            garages
-              .sort((a, b) => a.country.localeCompare(b.country))
-              .map((garage) => {
-                const isFull = isGarageFull(garage)
-                const isSelected = selectedGarageId === garage.id
-
-                return (
-                  <Card
-                    key={garage.id}
-                    className={cn(
-                      "p-4 cursor-pointer transition-all",
-                      isFull && "opacity-50 cursor-not-allowed",
-                      !isFull && "hover:bg-gray-50",
-                      isSelected && "border-2 border-gray-900 bg-gray-100"
-                    )}
-                    onClick={() => !isFull && setSelectedGarageId(garage.id!)}
-                  >
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="font-medium">
-                          {garage.country} {isFull && <span className="text-red-600">(FULL)</span>}
-                        </div>
-                        <div className="text-sm text-muted-foreground mt-1">
-                          Trucks: {garage.currentTrucks}/{garage.capacity} • Trailers: {garage.currentTrailers}/{garage.trailerCapacity}
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                )
-              })
-          )}
-
-          {allGaragesFull && (
-            <div className="text-center py-4 text-muted-foreground italic text-sm">
-              All garages are at {vehicleType} capacity. Upgrade a garage to purchase more.
-            </div>
+            <>
+              {allGaragesFull && (
+                <div className="text-red-600 text-sm text-center border border-red-600 rounded p-3 bg-red-50 mb-3">
+                  {vehicleType === 'truck' 
+                    ? 'All garages are at full truck capacity. Please expand an existing garage or purchase a new one.'
+                    : 'All garages are at full trailer capacity. Please expand an existing garage or purchase a new one.'}
+                </div>
+              )}
+              <div>
+                <label className="text-sm font-medium mb-2 block">Select Garage</label>
+                <Select onValueChange={(value) => setSelectedGarageId(Number(value))}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a garage..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {availableGarages.map((garage) => (
+                      <SelectItem key={garage.id} value={String(garage.id)}>
+                        {vehicleType === 'truck'
+                          ? `${garage.country} (${garage.currentTrucks}/${garage.capacity} trucks)`
+                          : `${garage.country} (${garage.currentTrailers}/${garage.trailerCapacity} trailers)`}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </>
           )}
         </div>
 
