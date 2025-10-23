@@ -1,0 +1,84 @@
+{
+  "trailers": [
+    {
+      "id": "container_trailer",
+      "name": "Container Trailer",
+      "type": "Container",
+      "required_hp": 240,
+      "freight_points": 7,
+      "price_usd": 51000,
+      "level_required": 2,
+      "cargo_types": ["containers", "machinery", "electronics"]
+    },
+    {
+      "id": "tipper_trailer",
+      "name": "Tipper Trailer",
+      "type": "Tipper",
+      "required_hp": 300,
+      "freight_points": 8,
+      "price_usd": 65000,
+      "level_required": 4,
+      "cargo_types": ["gravel", "coal", "grain"]
+    },
+    {
+      "id": "cooled_trailer",
+      "name": "Cooled Trailer",
+      "type": "Refrigerated",
+      "required_hp": 300,
+      "freight_points": 9,
+      "price_usd": 72000,
+      "level_required": 6,
+      "cargo_types": ["food", "medicine", "perishables"]
+    },
+    {
+      "id": "liquid_trailer",
+      "name": "Liquid Trailer",
+      "type": "Tanker",
+      "required_hp": 300,
+      "freight_points": 10,
+      "price_usd": 78000,
+      "level_required": 8,
+      "cargo_types": ["fuel", "milk", "chemicals"]
+    },
+    {
+      "id": "low_trailer",
+      "name": "Low Trailer",
+      "type": "Lowboy",
+      "required_hp": 400,
+      "freight_points": 11,
+      "price_usd": 85000,
+      "level_required": 12,
+      "cargo_types": ["construction_equipment", "vehicles"]
+    },
+    {
+      "id": "chemical_trailer",
+      "name": "Chemical Trailer",
+      "type": "Tanker",
+      "required_hp": 400,
+      "freight_points": 14,
+      "price_usd": 92000,
+      "level_required": 16,
+      "cargo_types": ["industrial_chemicals", "hazardous_materials"]
+    },
+    {
+      "id": "radioactive_trailer",
+      "name": "Radioactive Trailer",
+      "type": "Specialized",
+      "required_hp": 500,
+      "freight_points": 16,
+      "price_usd": 125000,
+      "level_required": 20,
+      "cargo_types": ["radioactive_materials"]
+    },
+    {
+      "id": "heavy_trailer",
+      "name": "Heavy Trailer",
+      "type": "Heavy Duty",
+      "required_hp": 600,
+      "freight_points": 18,
+      "price_usd": 160000,
+      "level_required": 25,
+      "cargo_types": ["oversized_loads", "industrial_machines"]
+    }
+  ]
+}
