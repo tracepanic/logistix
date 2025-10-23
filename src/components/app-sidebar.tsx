@@ -27,7 +27,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           url: "/company/manage",
         },
         {
-          title: "Garage",
+          title: "Manage Garage",
           url: "/garage",
           icon: Building,
           isActive: true,
