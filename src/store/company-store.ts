@@ -10,7 +10,7 @@ interface CompanyStore {
 
   // Actions
   loadCompany: () => Promise<void>
-  createCompany: (name: string) => Promise<Company | null>
+  createCompany: (name: string, country: string) => Promise<Company | null>
   setCompany: (company: Company | null) => void
   setLoading: (isLoading: boolean) => void
   setError: (error: string | null) => void
@@ -41,11 +41,12 @@ export const useCompanyStore = create<CompanyStore>((set) => ({
   },
 
   // Create new company
-  createCompany: async (name: string) => {
+  createCompany: async (name: string, country: string) => {
     set({ isLoading: true, error: null })
     try {
       const companyData = {
         name,
+        country,
         balance: 10000,
         createdAt: new Date()
       }
