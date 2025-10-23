@@ -10,7 +10,7 @@ class LogistixDatabase extends Dexie {
 
     // Define database schema version 1
     this.version(1).stores({
-      companies: '++id, name, balance, createdAt'
+      companies: '++id, name, country, balance, createdAt'
     })
   }
 }
