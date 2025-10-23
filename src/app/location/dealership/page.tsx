@@ -16,8 +16,8 @@ export default function DealershipPage() {
         </TabsList>
 
         <TabsContent value="trucks" className="space-y-6">
-          <div className="grid grid-cols-2 gap-6">
-            {trucksData.trucks.map((truck) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {trucksData.trucks.sort((a, b) => a.price_usd - b.price_usd).map((truck) => (
               <Card key={truck.id}>
                 <CardHeader>
                   <CardDescription>{truck.brand}</CardDescription>
@@ -62,7 +62,7 @@ export default function DealershipPage() {
         </TabsContent>
 
         <TabsContent value="trailers" className="space-y-6">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trailersData.trailers.map((trailer) => (
               <Card key={trailer.id}>
                 <CardHeader>
@@ -89,7 +89,7 @@ export default function DealershipPage() {
                     <div className="flex flex-wrap gap-2">
                       {trailer.cargo_types.map((cargoType) => (
                         <span key={cargoType} className="text-xs bg-secondary px-2 py-1 rounded">
-                          {cargoType.replace(/_/g, ' ')}
+                          {cargoType.replace(/_/g, ' ').toUpperCase()}
                         </span>
                       ))}
                     </div>
