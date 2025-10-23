@@ -16,6 +16,14 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import countriesData from '@/data/countries.json'
 import { Spinner } from '@/components/ui/spinner'
 
 // Form validation schema
@@ -25,7 +33,9 @@ const formSchema = z.object({
     .max(50, { message: "Company name must be less than 50 characters" })
     .refine((val) => val.trim().length >= 2, {
       message: "Company name is required"
-    })
+    }),
+  country: z.string()
+    .min(1, { message: "HQ location is required" })
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -38,7 +48,8 @@ export default function NewCompanyPage() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: ""
+      name: "",
+      country: ""
     }
   })
 
@@ -56,7 +67,7 @@ export default function NewCompanyPage() {
 
   // Form submission handler
   async function onSubmit(values: FormData) {
-    const createdCompany = await createCompany(values.name.trim())
+    const createdCompany = await createCompany(values.name.trim(), values.country)
     if (createdCompany) {
       router.push('/company/manage')
     }
@@ -92,6 +103,30 @@ export default function NewCompanyPage() {
                   <FormControl>
                     <Input placeholder="Enter company name" {...field} />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="country"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>HQ Location</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select HQ location..." />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {countriesData.europe.map((country) => (
+                        <SelectItem key={country} value={country}>
+                          {country}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
