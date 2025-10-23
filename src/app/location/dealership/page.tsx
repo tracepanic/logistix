@@ -1,12 +1,53 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import trucksData from '@/data/trucks.json'
 import trailersData from '@/data/trailers.json'
+import { useCompanyStore } from '@/store/company-store'
+import { useGarageStore } from '@/store/garage-store'
+import { useTruckStore } from '@/store/truck-store'
+import { useTrailerStore } from '@/store/trailer-store'
+import { SelectGarageDialog } from './select-garage-dialog'
+
+interface SelectedVehicle {
+  type: 'truck' | 'trailer'
+  id: string
+  brand?: string
+  model?: string
+  name?: string
+  price: number
+}
 
 export default function DealershipPage() {
+  const [showTruckDialog, setShowTruckDialog] = useState(false)
+  const [showTrailerDialog, setShowTrailerDialog] = useState(false)
+  const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null)
+
+  const company = useCompanyStore((state) => state.company)
+  const loadCompany = useCompanyStore((state) => state.loadCompany)
+  const loadGarages = useGarageStore((state) => state.loadGarages)
+  const loadTrucks = useTruckStore((state) => state.loadTrucks)
+  const loadTrailers = useTrailerStore((state) => state.loadTrailers)
+  const purchaseTruck = useTruckStore((state) => state.purchaseTruck)
+  const purchaseTrailer = useTrailerStore((state) => state.purchaseTrailer)
+
+  // Load data on mount
+  useEffect(() => {
+    const loadData = async () => {
+      await loadCompany()
+      const currentCompany = useCompanyStore.getState().company
+      if (currentCompany?.id) {
+        await loadGarages(currentCompany.id)
+        await loadTrucks(currentCompany.id)
+        await loadTrailers(currentCompany.id)
+      }
+    }
+    loadData()
+  }, [loadCompany, loadGarages, loadTrucks, loadTrailers])
+
   return (
     <div className="container mx-auto py-6">
       <Tabs defaultValue="trucks" className="space-y-6">
@@ -54,7 +95,21 @@ export default function DealershipPage() {
                     <p className="text-xs text-muted-foreground uppercase mb-1">Price</p>
                     <p className="text-2xl font-bold">${truck.price_usd.toLocaleString('en-US')}</p>
                   </div>
-                  <Button className="w-full">Purchase Truck</Button>
+                  <Button
+                    className="w-full"
+                    onClick={() => {
+                      setSelectedVehicle({
+                        type: 'truck',
+                        brand: truck.brand,
+                        model: truck.model,
+                        id: truck.id,
+                        price: truck.price_usd
+                      })
+                      setShowTruckDialog(true)
+                    }}
+                  >
+                    Purchase Truck
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -98,13 +153,58 @@ export default function DealershipPage() {
                     <p className="text-xs text-muted-foreground uppercase mb-1">Price</p>
                     <p className="text-2xl font-bold">${trailer.price_usd.toLocaleString('en-US')}</p>
                   </div>
-                  <Button className="w-full">Purchase Trailer</Button>
+                  <Button
+                    className="w-full"
+                    onClick={() => {
+                      setSelectedVehicle({
+                        type: 'trailer',
+                        name: trailer.name,
+                        id: trailer.id,
+                        price: trailer.price_usd
+                      })
+                      setShowTrailerDialog(true)
+                    }}
+                  >
+                    Purchase Trailer
+                  </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
         </TabsContent>
       </Tabs>
+
+      {selectedVehicle?.type === 'truck' && (
+        <SelectGarageDialog
+          open={showTruckDialog}
+          onOpenChange={setShowTruckDialog}
+          vehicleType="truck"
+          vehicleBrand={selectedVehicle.brand || ''}
+          vehicleModel={selectedVehicle.model || ''}
+          vehiclePrice={selectedVehicle.price}
+          onPurchase={async (garageId) => {
+            if (company?.id) {
+              await purchaseTruck(company.id, garageId, selectedVehicle.id, selectedVehicle.price)
+            }
+          }}
+        />
+      )}
+
+      {selectedVehicle?.type === 'trailer' && (
+        <SelectGarageDialog
+          open={showTrailerDialog}
+          onOpenChange={setShowTrailerDialog}
+          vehicleType="trailer"
+          vehicleBrand={selectedVehicle.name || ''}
+          vehicleModel=""
+          vehiclePrice={selectedVehicle.price}
+          onPurchase={async (garageId) => {
+            if (company?.id) {
+              await purchaseTrailer(company.id, garageId, selectedVehicle.id, selectedVehicle.price)
+            }
+          }}
+        />
+      )}
     </div>
   )
 }
