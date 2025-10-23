@@ -58,7 +58,7 @@ export default function ManageCompanyPage() {
   return (
     <div className="container mx-auto py-6">
       <Tabs defaultValue="overview" className="space-y-6">
-        <TabsList>
+        <TabsList className="grid grid-cols-2 w-full">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>

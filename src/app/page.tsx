@@ -1,5 +1,5 @@
-const Page = () => {
-    return null;
-};
+import { redirect } from 'next/navigation'
 
-export default Page;
+export default function HomePage() {
+  redirect('/company/manage')
+}
