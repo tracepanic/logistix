@@ -4,6 +4,8 @@ export interface Garage {
   country: string
   capacity: number
   currentTrucks: number
+  trailerCapacity: number
+  currentTrailers: number
   purchasePrice: number
   totalInvestment: number
   createdAt: string

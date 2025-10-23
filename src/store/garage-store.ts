@@ -110,11 +110,13 @@ export const useGarageStore = create<GarageStore>((set, get) => ({
 
       // Calculate new values
       const newCapacity = garage.capacity + tierSize
+      const newTrailerCapacity = Math.round(newCapacity * 1.67)
       const newTotalInvestment = garage.totalInvestment + cost
 
       // Update garage
       await db.garages.update(garageId, {
         capacity: newCapacity,
+        trailerCapacity: newTrailerCapacity,
         totalInvestment: newTotalInvestment
       })
 
@@ -133,7 +135,7 @@ export const useGarageStore = create<GarageStore>((set, get) => ({
       set({
         garages: get().garages.map(g =>
           g.id === garageId
-            ? { ...g, capacity: newCapacity, totalInvestment: newTotalInvestment }
+            ? { ...g, capacity: newCapacity, trailerCapacity: newTrailerCapacity, totalInvestment: newTotalInvestment }
             : g
         ),
         isLoading: false
