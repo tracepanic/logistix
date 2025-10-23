@@ -35,9 +35,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton size="xl" className="bg-muted" asChild>
               <Link href="/">
-                <Truck />
+                <Truck className="h-7 w-7" />
                 <span>LogistiX</span>
               </Link>
             </SidebarMenuButton>
