@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/select"
 import { useGarageStore } from "@/store/garage-store"
 import { useCompanyStore } from "@/store/company-store"
-import { cn } from "@/lib/utils"
 
 interface SelectGarageDialogProps {
   open: boolean
