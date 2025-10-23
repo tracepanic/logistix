@@ -41,6 +41,7 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                                 <div className="flex items-center gap-2 px-4">
                                     <SidebarTrigger className="-ml-1" />
                                     <Separator orientation="vertical" className="mr-2 h-4" />
+                                    <span className="font-semibold text-lg">LogistiX</span>
                                 </div>
                             </header>
                             <div className="w-full h-full p-4 pt-0 mb-36">{children}</div>
