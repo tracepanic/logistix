@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/empty'
 import { Button } from '@/components/ui/button'
 import { Building2 } from 'lucide-react'
+import { Spinner } from '@/components/ui/spinner'
 
 export default function ManageCompanyPage() {
   const { company, isLoading, loadCompany } = useCompanyStore()
@@ -24,7 +25,7 @@ export default function ManageCompanyPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <p className="text-muted-foreground">Loading...</p>
+        <Spinner className="size-6" />
       </div>
     )
   }
