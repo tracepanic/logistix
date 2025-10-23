@@ -21,7 +21,7 @@ export function ClientLayout({ children }: { children: ReactNode }) {
             <SidebarProvider>
                 <CompanyProvider>
                     {isLoading ? (
-                        <div className="flex items-center justify-center min-h-screen">
+                        <div className="flex justify-center mt-40">
                             <Spinner className="size-8" />
                         </div>
                     ) : (
