@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import Link from 'next/link'
 import { useCompanyStore } from '@/store/company-store'
 import {
@@ -13,24 +12,11 @@ import {
 } from '@/components/ui/empty'
 import { Button } from '@/components/ui/button'
 import { Building2 } from 'lucide-react'
-import { Spinner } from '@/components/ui/spinner'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function ManageCompanyPage() {
-  const { company, isLoading, loadCompany } = useCompanyStore()
-
-  useEffect(() => {
-    loadCompany()
-  }, [loadCompany])
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Spinner className="size-6" />
-      </div>
-    )
-  }
+  const { company } = useCompanyStore()
 
   if (!company) {
     return (
