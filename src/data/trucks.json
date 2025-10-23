@@ -8,7 +8,7 @@
       "fuel_consumption_l_per_100km": 28,
       "fuel_capacity_l": 380,
       "max_load_tons": 25,
-      "price_usd": 35000,
+      "price_usd": 40000,
       "maintenance_cost_usd_per_km": 0.12,
       "speed_kmh": 90
     },
@@ -20,7 +20,7 @@
       "fuel_consumption_l_per_100km": 29,
       "fuel_capacity_l": 400,
       "max_load_tons": 27,
-      "price_usd": 38000,
+      "price_usd": 44000,
       "maintenance_cost_usd_per_km": 0.13,
       "speed_kmh": 92
     },
@@ -32,7 +32,7 @@
       "fuel_consumption_l_per_100km": 28,
       "fuel_capacity_l": 380,
       "max_load_tons": 26,
-      "price_usd": 39000,
+      "price_usd": 46000,
       "maintenance_cost_usd_per_km": 0.13,
       "speed_kmh": 91
     },
@@ -44,7 +44,7 @@
       "fuel_consumption_l_per_100km": 30,
       "fuel_capacity_l": 420,
       "max_load_tons": 28,
-      "price_usd": 42000,
+      "price_usd": 51000,
       "maintenance_cost_usd_per_km": 0.14,
       "speed_kmh": 95
     },
@@ -56,7 +56,7 @@
       "fuel_consumption_l_per_100km": 31,
       "fuel_capacity_l": 400,
       "max_load_tons": 30,
-      "price_usd": 39000,
+      "price_usd": 47000,
       "maintenance_cost_usd_per_km": 0.15,
       "speed_kmh": 94
     },
@@ -68,7 +68,7 @@
       "fuel_consumption_l_per_100km": 33,
       "fuel_capacity_l": 500,
       "max_load_tons": 32,
-      "price_usd": 46000,
+      "price_usd": 56000,
       "maintenance_cost_usd_per_km": 0.16,
       "speed_kmh": 96
     },
@@ -80,7 +80,7 @@
       "fuel_consumption_l_per_100km": 32,
       "fuel_capacity_l": 480,
       "max_load_tons": 33,
-      "price_usd": 50000,
+      "price_usd": 61000,
       "maintenance_cost_usd_per_km": 0.17,
       "speed_kmh": 98
     },
@@ -92,7 +92,7 @@
       "fuel_consumption_l_per_100km": 33,
       "fuel_capacity_l": 480,
       "max_load_tons": 34,
-      "price_usd": 52000,
+      "price_usd": 64000,
       "maintenance_cost_usd_per_km": 0.17,
       "speed_kmh": 99
     },
@@ -104,7 +104,7 @@
       "fuel_consumption_l_per_100km": 31,
       "fuel_capacity_l": 500,
       "max_load_tons": 35,
-      "price_usd": 62000,
+      "price_usd": 75000,
       "maintenance_cost_usd_per_km": 0.18,
       "speed_kmh": 103
     },
@@ -116,7 +116,7 @@
       "fuel_consumption_l_per_100km": 32,
       "fuel_capacity_l": 520,
       "max_load_tons": 36,
-      "price_usd": 68000,
+      "price_usd": 82000,
       "maintenance_cost_usd_per_km": 0.19,
       "speed_kmh": 104
     },
@@ -128,7 +128,7 @@
       "fuel_consumption_l_per_100km": 33,
       "fuel_capacity_l": 540,
       "max_load_tons": 37,
-      "price_usd": 72000,
+      "price_usd": 87000,
       "maintenance_cost_usd_per_km": 0.20,
       "speed_kmh": 106
     },
@@ -140,7 +140,7 @@
       "fuel_consumption_l_per_100km": 34,
       "fuel_capacity_l": 550,
       "max_load_tons": 38,
-      "price_usd": 76000,
+      "price_usd": 92000,
       "maintenance_cost_usd_per_km": 0.20,
       "speed_kmh": 107
     },
@@ -152,7 +152,7 @@
       "fuel_consumption_l_per_100km": 34,
       "fuel_capacity_l": 550,
       "max_load_tons": 38,
-      "price_usd": 79000,
+      "price_usd": 96000,
       "maintenance_cost_usd_per_km": 0.21,
       "speed_kmh": 108
     },
@@ -164,7 +164,7 @@
       "fuel_consumption_l_per_100km": 35,
       "fuel_capacity_l": 560,
       "max_load_tons": 39,
-      "price_usd": 83000,
+      "price_usd": 101000,
       "maintenance_cost_usd_per_km": 0.22,
       "speed_kmh": 109
     },
@@ -176,7 +176,7 @@
       "fuel_consumption_l_per_100km": 35,
       "fuel_capacity_l": 580,
       "max_load_tons": 39,
-      "price_usd": 88000,
+      "price_usd": 107000,
       "maintenance_cost_usd_per_km": 0.23,
       "speed_kmh": 110
     },
@@ -188,7 +188,7 @@
       "fuel_consumption_l_per_100km": 36,
       "fuel_capacity_l": 600,
       "max_load_tons": 40,
-      "price_usd": 95000,
+      "price_usd": 115000,
       "maintenance_cost_usd_per_km": 0.23,
       "speed_kmh": 111
     },
@@ -200,7 +200,7 @@
       "fuel_consumption_l_per_100km": 37,
       "fuel_capacity_l": 620,
       "max_load_tons": 41,
-      "price_usd": 105000,
+      "price_usd": 126000,
       "maintenance_cost_usd_per_km": 0.24,
       "speed_kmh": 113
     },
@@ -212,7 +212,7 @@
       "fuel_consumption_l_per_100km": 37,
       "fuel_capacity_l": 650,
       "max_load_tons": 42,
-      "price_usd": 108000,
+      "price_usd": 130000,
       "maintenance_cost_usd_per_km": 0.25,
       "speed_kmh": 113
     },
@@ -224,7 +224,7 @@
       "fuel_consumption_l_per_100km": 38,
       "fuel_capacity_l": 700,
       "max_load_tons": 43,
-      "price_usd": 118000,
+      "price_usd": 142000,
       "maintenance_cost_usd_per_km": 0.26,
       "speed_kmh": 114
     },
@@ -236,7 +236,7 @@
       "fuel_consumption_l_per_100km": 39,
       "fuel_capacity_l": 720,
       "max_load_tons": 45,
-      "price_usd": 140000,
+      "price_usd": 166000,
       "maintenance_cost_usd_per_km": 0.27,
       "speed_kmh": 116
     },
@@ -248,7 +248,7 @@
       "fuel_consumption_l_per_100km": 40,
       "fuel_capacity_l": 750,
       "max_load_tons": 46,
-      "price_usd": 150000,
+      "price_usd": 177000,
       "maintenance_cost_usd_per_km": 0.28,
       "speed_kmh": 117
     },
@@ -260,7 +260,7 @@
       "fuel_consumption_l_per_100km": 38,
       "fuel_capacity_l": 700,
       "max_load_tons": 44,
-      "price_usd": 130000,
+      "price_usd": 155000,
       "maintenance_cost_usd_per_km": 0.27,
       "speed_kmh": 115
     },
@@ -272,7 +272,7 @@
       "fuel_consumption_l_per_100km": 41,
       "fuel_capacity_l": 760,
       "max_load_tons": 47,
-      "price_usd": 165000,
+      "price_usd": 195000,
       "maintenance_cost_usd_per_km": 0.30,
       "speed_kmh": 119
     },
@@ -284,7 +284,7 @@
       "fuel_consumption_l_per_100km": 36,
       "fuel_capacity_l": 620,
       "max_load_tons": 40,
-      "price_usd": 112000,
+      "price_usd": 135000,
       "maintenance_cost_usd_per_km": 0.24,
       "speed_kmh": 112
     }
