@@ -83,6 +83,8 @@ export function BuyGarageDialog() {
         country: values.country,
         capacity: 3,
         currentTrucks: 0,
+        trailerCapacity: 5,
+        currentTrailers: 0,
         purchasePrice: 25000,
         totalInvestment: 25000,
       })
