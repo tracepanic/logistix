@@ -28,7 +28,11 @@ export const columns: ColumnDef<Garage>[] = [
     id: "actions",
     cell: ({ row }) => {
       const garage = row.original
-      return <UpgradeGarageDialog garage={garage} />
+      return (
+        <div className="flex justify-end">
+          <UpgradeGarageDialog garage={garage} />
+        </div>
+      )
     },
     enableSorting: false,
   },

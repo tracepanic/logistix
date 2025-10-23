@@ -15,6 +15,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import {
   Select,
   SelectContent,
@@ -33,6 +34,7 @@ import {
 import { useGarageStore } from "@/store/garage-store"
 import { useCompanyStore } from "@/store/company-store"
 import countries from "@/data/countries.json"
+import { DollarSign, Truck } from "lucide-react"
 
 const formSchema = z.object({
   country: z.string().min(1, "Please select a country"),
@@ -135,13 +137,21 @@ export function BuyGarageDialog() {
               )}
             />
 
-            <div className="text-sm space-y-1">
-              <p>
-                <strong>Cost:</strong> $25,000
-              </p>
-              <p>
-                <strong>Starting capacity:</strong> 3 trucks
-              </p>
+            <div className="flex gap-3">
+              <Card className="flex items-center gap-3 p-3 flex-1">
+                <DollarSign className="h-5 w-5 text-muted-foreground" />
+                <div className="flex flex-col">
+                  <span className="text-xs text-muted-foreground uppercase">Cost</span>
+                  <span className="text-base font-semibold">$25,000</span>
+                </div>
+              </Card>
+              <Card className="flex items-center gap-3 p-3 flex-1">
+                <Truck className="h-5 w-5 text-muted-foreground" />
+                <div className="flex flex-col">
+                  <span className="text-xs text-muted-foreground uppercase">Starting Capacity</span>
+                  <span className="text-base font-semibold">3 trucks</span>
+                </div>
+              </Card>
             </div>
 
             <AlertDialogFooter>
