@@ -27,6 +27,19 @@ export const useCompanyStore = create<CompanyStore>((set) => ({
     set({ isLoading: true, error: null })
     try {
       const companies = await db.companies.toArray()
+      
+      // One-time migration: Reset all companies to 100,000 balance
+      const migrationKey = 'balance_migration_100k_completed'
+      if (!localStorage.getItem(migrationKey)) {
+        try {
+          await db.companies.toCollection().modify({ balance: 100000 })
+          localStorage.setItem(migrationKey, 'true')
+        } catch (migrationError) {
+          console.error('Balance migration failed:', migrationError)
+          // Continue loading company even if migration fails
+        }
+      }
+      
       if (companies.length > 0) {
         set({ company: companies[0], isLoading: false })
       } else {
@@ -47,7 +60,7 @@ export const useCompanyStore = create<CompanyStore>((set) => ({
       const companyData = {
         name,
         country,
-        balance: 10000,
+        balance: 100000,
         createdAt: new Date()
       }
 
