@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Truck, Building2, Building } from "lucide-react"
+import { Truck, Building2, Building, MapPin } from "lucide-react"
 
 import {
   Sidebar,
@@ -31,6 +31,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           url: "/garage",
           icon: Building,
           isActive: true,
+        },
+      ],
+    },
+    {
+      title: "Locations",
+      url: "/location",
+      icon: MapPin,
+      isActive: true,
+      items: [
+        {
+          title: "Truck Dealership",
+          url: "/location/dealership",
         },
       ],
     },
