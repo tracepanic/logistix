@@ -18,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Spinner } from "@/components/ui/spinner"
 import { useGarageStore } from "@/store/garage-store"
 import { useCompanyStore } from "@/store/company-store"
 
@@ -153,7 +154,7 @@ export function SelectGarageDialog({
             onClick={handlePurchase}
             disabled={!selectedGarageId || !hasSufficientFunds || isPurchasing}
           >
-            {isPurchasing ? 'Purchasing...' : 'Purchase & Assign'}
+            {isPurchasing ? <Spinner className="size-4" /> : 'Purchase & Assign'}
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
